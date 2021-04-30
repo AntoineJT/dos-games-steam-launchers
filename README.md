@@ -36,9 +36,10 @@ You can download the closed source official
 or the open source OpenJDK prebuilt binaries 
 by [AdoptOpenJDK](https://adoptopenjdk.net/).
 
-Download BuildGDX on [the official website]
-(https://m210.duke4.net/), and put it in your Steam
-Blood directory. It must be named `BuildGDX.jar`. \
+Download BuildGDX on 
+[the official website](https://m210.duke4.net/), 
+and put it in your Steam Blood directory. 
+It must be named `BuildGDX.jar`. \
 Rename the original `dosbox.exe` file to whatever 
 you want, for example, `dosbox.exe.orig`. \
 Copy the previously compiled `dosbox.exe` to your 

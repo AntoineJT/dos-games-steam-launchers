@@ -38,7 +38,7 @@ latest binaries.
 You'll need to have `gcc.exe` in your PATH.
 I personally use [MSYS2](https://www.msys2.org/)
 to have MinGW on Windows, but you can use whatever
-you want.
+you want. \
 Just don't forget to add `gcc.exe` to your system
 PATH.
 

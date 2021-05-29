@@ -1,7 +1,8 @@
 # DOS Games Steam Launchers
 
 *This was first called BloodGDX Steam 
-Launcher*
+Launcher and used to support only
+BloodGDX*
 
 Just a simple collection of minimal C 
 programs to launch some old DOS games
@@ -50,8 +51,8 @@ You now have a bunch of exe files.
 
 ### Blood
 
-First, check the section above: you need to build the
-file yourself.
+First, check the section above: you need to build
+the file yourself.
 
 Since this is a BloodGDX launcher, you'll 
 need `java.exe` to be in the PATH of your
@@ -67,8 +68,8 @@ and put it in your Steam Blood directory.
 It must be named `BuildGDX.jar`. \
 Rename the original `dosbox.exe` file to whatever 
 you want, for example, `dosbox.exe.orig`. \
-Copy the previously compiled `dosbox.exe` to your 
-Blood Steam folder.
+Copy the previously compiled `dosbox_bloodgdx.exe` 
+to your Blood Steam folder and rename it `dosbox.exe`.
 
 You can now run the game using the Steam Play button.
 

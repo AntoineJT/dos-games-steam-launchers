@@ -84,8 +84,9 @@ something like `dosbox.exe.orig` to be able to
 revert the process without verify file integrity
 in Steam).
 
-For example, for the 3 heretic/hexen games supported,
-the original dosbox.exe file can be found in the
-base subfolder in the game files.
+For the 3 heretic/hexen games supported,
+the original dosbox.exe file to replace can 
+be found in the `base/` subfolder 
+in the game files.
 
 Antoine "AntoineJT" Tournepiche

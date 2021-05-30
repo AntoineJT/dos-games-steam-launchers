@@ -43,6 +43,7 @@ int main(void)
         "\n" "AND that you're running it from Steam."
         "\n" "You can't run this file outside of Steam directly!"
         "\n", folder, folder);
+
     system("pause");
     return EXIT_FAILURE;
 }

@@ -42,7 +42,7 @@ int main(void)
         "in the root directory/%s of the game "
         "\n" "AND that you're running it from Steam."
         "\n" "You can't run this file outside of Steam directly!"
-        "\n", folder, folder);
+        "\n\n", folder, folder);
 
     system("pause");
     return EXIT_FAILURE;

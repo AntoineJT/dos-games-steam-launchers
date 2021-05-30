@@ -25,9 +25,7 @@ enum cmd_color {
 
 int main(void)
 {
-    const char* folder = CHOCO_FOLDER;
-
-    if (chdir(folder) == 0) {
+    if (chdir(CHOCO_FOLDER) == 0) {
         system(CHOCO_CMD);
         return EXIT_SUCCESS;
     }
@@ -35,14 +33,14 @@ int main(void)
     const HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
     SetConsoleTextAttribute(console, RED);
-    printf("%s folder not found!\n", folder);
+    puts(CHOCO_FOLDER " folder not found!");
 
     SetConsoleTextAttribute(console, WHITE);
-    printf("Make sure you have copied %s files "
-        "in the root directory/%s of the game "
+    puts("Make sure you have copied " CHOCO_FOLDER " files "
+        "in the root directory/" CHOCO_FOLDER " of the game "
         "\n" "AND that you're running it from Steam."
         "\n" "You can't run this file outside of Steam directly!"
-        "\n\n", folder, folder);
+        "\n");
 
     system("pause");
     return EXIT_FAILURE;

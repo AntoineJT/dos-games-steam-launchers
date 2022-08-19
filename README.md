@@ -2,10 +2,6 @@
 
 [![Build](https://github.com/AntoineJT/dos-games-steam-launchers/actions/workflows/main.yml/badge.svg)](https://github.com/AntoineJT/dos-games-steam-launchers/actions/workflows/main.yml)
 
-*This was first called BloodGDX Steam
-Launcher and used to support only
-BloodGDX*
-
 Just a simple collection of minimal C
 programs to launch some old DOS games
 from Steam using source ports instead
@@ -25,16 +21,17 @@ latest binaries.
 
 ## What is supported?
 
-- Blood
-  - BloodGDX
-- Doom (1993)
+- **Blood**
+  - [BuildGDX (BloodGDX)](#blood---buildgdx)
+- **Doom (1993)**
   - [Chocolate Doom](#doom-1993---chocolate-doom)
-- Heretic
+- **Heretic**
   - Chocolate Heretic
-- HeXen: Beyond Heretic
-  - Chocolate HeXen
-- HeXen: Deathkings of the Dark Citadel
-  - Chocolate HeXen
+- **HeXen**
+  - **Beyond Heretic** (base game)
+    - Chocolate HeXen
+  - **Deathkings of the Dark Citadel** (Expansion Pack)
+    - Chocolate HeXen
 
 ## Common instructions
 
@@ -54,7 +51,7 @@ You now have a bunch of exe files.
 
 ## How to use?
 
-### Blood
+### Blood - BuildGDX
 
 First, check the section above: you need to build
 the file yourself.

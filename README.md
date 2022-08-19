@@ -1,5 +1,7 @@
 # DOS Games Steam Launchers
 
+[![Build](https://github.com/AntoineJT/dos-games-steam-launchers/actions/workflows/main.yml/badge.svg)](https://github.com/AntoineJT/dos-games-steam-launchers/actions/workflows/main.yml)
+
 *This was first called BloodGDX Steam 
 Launcher and used to support only
 BloodGDX*

@@ -1,0 +1,21 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: ./build.bat
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          # Artifact name
+          name: Binaries
+          # A file, directory or wildcard pattern that describes what to upload
+          path: dosbox_*.exe
+          # The desired behavior if no files are found using the provided path.
+          if-no-files-found: error

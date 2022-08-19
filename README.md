@@ -27,6 +27,8 @@ latest binaries.
 
 - Blood
   - BloodGDX
+- Doom (1993)
+  - [Chocolate Doom](#doom-1993---chocolate-doom)
 - Heretic
   - Chocolate Heretic
 - HeXen: Beyond Heretic
@@ -77,13 +79,31 @@ You can now run the game using the Steam Play button.
 
 ![Steam screenshot](.images/Steam_screenshot.png)
 
+### Doom (1993) - Chocolate Doom
+
+- Go to the `base` game subfolder
+- Rename `dosbox.exe` to `dosbox.orig.exe`
+to be able to revert the process without 
+verifying file integrity on Steam
+- Copy `dosbox_chocolate-doom.exe` to
+the `base` folder
+- Rename `dosbox_chocolate-doom.exe` to 
+`dosbox.exe`
+- Go back to the root game folder
+- Create a folder named `chocolate-doom`
+- [Download Chocolate Doom](https://github.com/chocolate-doom/chocolate-doom/releases)
+(the win32 zip one)
+- Extract chocolate doom archive to the
+previously created folder
+- Run the game from Steam
+
 ### Heretic/HeXen games
 
 For every `dosbox_<something>.exe` file, just
 rename it `dosbox.exe` to replace the original
 `dosbox.exe` file (rename the original one to
-something like `dosbox.exe.orig` to be able to
-revert the process without verify file integrity
+`dosbox.orig.exe` to be able to revert the 
+process without verifying file integrity
 in Steam).
 
 For the 3 heretic/hexen games supported,

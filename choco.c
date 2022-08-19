@@ -17,6 +17,9 @@ enum cmd_color {
 #elif defined(HEXENDD)
     #define CHOCO_FOLDER "chocolate-hexen"
     #define CHOCO_CMD "chocolate-hexen.exe -iwad ..\\base\\HEXEN.WAD -file ..\\base\\HEXDD.WAD"
+#elif defined(DOOM)
+    #define CHOCO_FOLDER "chocolate-doom"
+    #define CHOCO_CMD "chocolate-doom.exe -iwad ..\\base\\DOOM.WAD"
 #endif
 
 #if !defined(CHOCO_FOLDER) || !defined(CHOCO_CMD)

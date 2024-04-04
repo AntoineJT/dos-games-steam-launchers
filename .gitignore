@@ -1,2 +1,2 @@
 # Ignore builds
-dosbox_*.exe
+*.exe

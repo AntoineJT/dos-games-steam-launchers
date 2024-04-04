@@ -32,6 +32,8 @@ latest binaries.
     - Chocolate HeXen
   - **Deathkings of the Dark Citadel** (Expansion Pack)
     - Chocolate HeXen
+- **Red Faction** (not a DOS game)
+  - [Dash Faction](#red-faction)
 
 ## Common instructions
 
@@ -108,5 +110,15 @@ For the 3 heretic/hexen games supported,
 the original dosbox.exe file to replace can
 be found in the `base/` subfolder
 in the game files.
+
+### Red Faction
+
+Install [Dash Faction](https://github.com/rafalh/dashfaction)
+in your game directory.
+
+Rename the original `RedFaction.exe` to
+whatever you want (i.e.
+`RedFaction.original.exe`) and you're good
+to go.
 
 Antoine "AntoineJT" Tournepiche

@@ -37,7 +37,10 @@ jobs:
 
       # TAG TRIGGERED ONLY
       - name: Zip it for release
-        run: Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./old-games-steam-launcher_${{ github.ref_name }}.zip"
+        # if: ${{ github.ref_type == 'tag' }}
+        run: |
+          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./build.zip
+          Rename-Item -Path "./build.zip" -NewName "old-games-steam-launcher_${{ github.ref_name }}.zip"
 
       # Release on version tag
       - name: Create release on tag

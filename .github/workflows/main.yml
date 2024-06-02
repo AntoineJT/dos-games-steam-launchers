@@ -10,16 +10,14 @@ jobs:
       - uses: actions/checkout@v4.1.6
 
       - name: Build
-        run: |
-          ./build.bat
-          $Env:BUILD_DATE = Get-Date
+        run: ./build.bat
 
       - name: Generate build infos
         run: |
           "URL: ${{ github.server_url }}/${{ github.repository }}" | Out-File INFOS.txt
           "Commit URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" | Out-File -Append INFOS.txt
           "Triggered by: ${{ github.actor }}" | Out-File -Append INFOS.txt
-          "Date: $Env:BUILD_DATE" | Out-File -Append INFOS.txt
+          "Date: $(Get-Date)" | Out-File -Append INFOS.txt
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 

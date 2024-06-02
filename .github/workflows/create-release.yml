@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - ci/upload-release # temporary
+  tag: "**"
 
 jobs:
   build:
@@ -12,16 +13,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.6
+
       - name: Build
-        run: ./build.bat      
+        run: ./build.bat
+
       - name: Create release
         uses: softprops/action-gh-release@v2.0.5
+        if: ${{ github.ref_type == 'tag' }}
         with:
-          name: Old Games Steam Launchers - ${{ github.sha }}
-          prerelease: ${{ github.ref != 'refs/heads/main' }}
+          name: Old Games Steam Launchers - ${{ github.ref_name }}-${{ github.sha }}
           fail_on_unmatched_files: true
           generate_release_notes: true
-          make_latest: ${{ github.ref == 'refs/heads/main' }}
+          # prerelease: ${{ github.ref != 'refs/heads/main' }}
+          # make_latest: ${{ github.ref == 'refs/heads/main' }}
           files: |
             *.exe
             README.md

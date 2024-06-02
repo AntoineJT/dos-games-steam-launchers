@@ -8,14 +8,43 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.6
+
       - name: Build
         run: ./build.bat
-      - name: Upload a Build Artifact
+
+      - name: Generate build infos
+        run: |
+          "URL: ${{ github.server_url }}/${{ github.repository }}" | Out-File INFOS.txt
+          "Commit URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" | Out-File -Append INFOS.txt
+          "Triggered by: ${{ github.actor }}" | Out-File -Append INFOS.txt
+          "Date: $(Get-Date) (US-format, UTC)" | Out-File -Append INFOS.txt
+          "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
+          "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
+
+      # BRANCH TRIGGERED ONLY
+      # Nightly binaries on push/pull requests
+      - name: Upload binaries as zip artifact
         uses: actions/upload-artifact@v4.3.3
+        if: ${{ github.ref_type == 'branch' }}
         with:
-          # Artifact name
-          name: Binaries
-          # A file, directory or wildcard pattern that describes what to upload
-          path: "*.exe"
-          # The desired behavior if no files are found using the provided path.
+          name: Binaries @ ${{ github.sha }}
+          path: |
+            *.exe
+            INFOS.txt
           if-no-files-found: error
+
+      # TAG TRIGGERED ONLY
+      - name: Zip it for release
+        if: ${{ github.ref_type == 'tag' }}
+        run: |
+          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
+
+      # Release on version tag
+      - name: Create release on tag
+        uses: softprops/action-gh-release@v2.0.5
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          name: ${{ github.ref_name }} @ Old Games Steam Launchers
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          files: "old-games-steam-launcher_${{ github.sha }}.zip"

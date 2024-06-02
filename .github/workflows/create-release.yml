@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - ci/upload-release # temporary
-  tags: "**"
+    tags: "**"
 
 jobs:
   build:

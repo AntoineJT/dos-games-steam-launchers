@@ -14,18 +14,7 @@ jobs:
           ./build.bat
           $Env:BUILD_DATE = Get-Date
 
-      # BRANCH TRIGGERED ONLY
-      # Nightly binaries on push/pull requests
-      - name: Upload binaries as zip artifact
-        uses: actions/upload-artifact@v4.3.3
-        if: ${{ github.ref_type == 'branch' }}
-        with:
-          name: Binaries @ ${{ github.sha }}
-          path: "*.exe"
-          if-no-files-found: error
-
-      # TAG TRIGGERED ONLY
-      - name: Zip it for release
+      - name: Generate build infos
         run: |
           "URL: ${{ github.server_url }}/${{ github.repository }}" | Out-File INFOS.txt
           "Commit URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" | Out-File -Append INFOS.txt
@@ -33,7 +22,22 @@ jobs:
           "Date: $BUILD_DATE" | Out-File -Append INFOS.txt
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
           "Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
-          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "old-games-steam-launcher_${{ github.ref_name }}.zip"
+
+      # BRANCH TRIGGERED ONLY
+      # Nightly binaries on push/pull requests
+      - name: Upload binaries as zip artifact
+        uses: actions/upload-artifact@v4.3.3
+        if: ${{ github.ref_type == 'branch' }}
+        with:
+          name: Binaries @ ${{ github.sha }}
+          path: |
+            *.exe
+            INFOS.txt
+          if-no-files-found: error
+
+      # TAG TRIGGERED ONLY
+      - name: Zip it for release
+        run: Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./old-games-steam-launcher_${{ github.ref_name }}.zip"
 
       # Release on version tag
       - name: Create release on tag

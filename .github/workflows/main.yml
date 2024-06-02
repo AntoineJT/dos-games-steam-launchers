@@ -39,8 +39,7 @@ jobs:
       - name: Zip it for release
         # if: ${{ github.ref_type == 'tag' }}
         run: |
-          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./build.zip
-          Rename-Item -Path "./build.zip" -NewName "old-games-steam-launcher_${{ github.ref_name }}.zip"
+          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip
 
       # Release on version tag
       - name: Create release on tag
@@ -50,4 +49,4 @@ jobs:
           name: ${{ github.ref_name }} @ Old Games Steam Launchers
           fail_on_unmatched_files: true
           generate_release_notes: true
-          files: "old-games-steam-launcher_${{ github.ref_name }}.zip"
+          files: "old-games-steam-launcher_${{ github.sha }}.zip"

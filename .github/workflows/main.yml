@@ -18,10 +18,10 @@ jobs:
         run: |
           "URL: ${{ github.server_url }}/${{ github.repository }}" | Out-File INFOS.txt
           "Commit URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" | Out-File -Append INFOS.txt
-          "Build triggered by: ${{ github.actor }}" | Out-File -Append INFOS.txt
-          "Date: $BUILD_DATE" | Out-File -Append INFOS.txt
+          "Triggered by: ${{ github.actor }}" | Out-File -Append INFOS.txt
+          "Date: $Env:BUILD_DATE" | Out-File -Append INFOS.txt
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
-          "Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
+          "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 
       # BRANCH TRIGGERED ONLY
       # Nightly binaries on push/pull requests

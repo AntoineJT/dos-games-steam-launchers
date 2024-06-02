@@ -17,7 +17,7 @@ jobs:
           "URL: ${{ github.server_url }}/${{ github.repository }}" | Out-File INFOS.txt
           "Commit URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" | Out-File -Append INFOS.txt
           "Triggered by: ${{ github.actor }}" | Out-File -Append INFOS.txt
-          "Date: $(Get-Date)" | Out-File -Append INFOS.txt
+          "Date: $(Get-Date) (US-format, UTC)" | Out-File -Append INFOS.txt
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 

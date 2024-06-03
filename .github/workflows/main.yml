@@ -22,9 +22,12 @@ jobs:
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 
       - name: Render README to PDF
-        run: |
-          winget install JohnMacFarlane.Pandoc --version 3.2 --silent --accept-source-agreements --accept-package-agreements
-          pandoc README.md -s -o README.pdf
+        uses: docker://pandoc/latex:3.2.0.0-alpine
+        with:
+          args: |-
+            --standalone
+            --output=README.pdf
+            README.md
 
       # BRANCH TRIGGERED ONLY
       # Nightly binaries on push/pull requests

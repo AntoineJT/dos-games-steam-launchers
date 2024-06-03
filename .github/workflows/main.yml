@@ -21,6 +21,12 @@ jobs:
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 
+      - name: Render README to PDF
+        uses: baileyjm02/markdown-to-pdf@v1.2.0
+        with:
+          input_path: README.md
+          build_html: false
+
       # BRANCH TRIGGERED ONLY
       # Nightly binaries on push/pull requests
       - name: Upload binaries as zip artifact
@@ -29,6 +35,7 @@ jobs:
         with:
           name: Binaries @ ${{ github.sha }}
           path: |
+            **/*.pdf
             *.exe
             INFOS.txt
           if-no-files-found: error

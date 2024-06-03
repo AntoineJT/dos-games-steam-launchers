@@ -22,10 +22,9 @@ jobs:
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 
       - name: Render README to PDF
-        uses: baileyjm02/markdown-to-pdf@v1.2.0
-        with:
-          input_path: README.md
-          build_html: false
+        run: |
+          winget install JohnMacFarlane.Pandoc --version 3.2 --silent --accept-source-agreements --accept-package-agreements
+          pandoc README.md -s -o README.pdf
 
       # BRANCH TRIGGERED ONLY
       # Nightly binaries on push/pull requests
@@ -35,7 +34,7 @@ jobs:
         with:
           name: Binaries @ ${{ github.sha }}
           path: |
-            **/*.pdf
+            README.pdf
             *.exe
             INFOS.txt
           if-no-files-found: error

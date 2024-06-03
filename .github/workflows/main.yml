@@ -21,13 +21,12 @@ jobs:
           "Commit SHA: ${{ github.sha }}" | Out-File -Append INFOS.txt
           "Branch/Tag: ${{ github.ref_name }}" | Out-File -Append INFOS.txt
 
-      - name: Render README to PDF
-        uses: docker://pandoc/latex:3.2.0.0-alpine
+      - uses: actions/setup-node@v4.0.2
         with:
-          args: |-
-            --standalone
-            --output=README.pdf
-            README.md
+          node-version: 20.14.0
+
+      - name: Render README to PDF
+        run: npx markdown-pdf@11.0.0 --out README.pdf README.md
 
       # BRANCH TRIGGERED ONLY
       # Nightly binaries on push/pull requests

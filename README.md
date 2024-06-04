@@ -9,7 +9,7 @@ Just a simple collection of minimal C programs to launch some old DOS games from
 This thing exists because trusting premade closed source/prebuilt similar launchers is unnecessarily risky since I can do this within a minute.
 
 I'm now providing pre-built binaries, but built exclusively by GitHub machines. \
-You can find that in the releases tab.
+You can find that in the [releases](https://github.com/AntoineJT/dos-games-steam-launchers/releases) tab.
 
 I'm still fond of the "don't trust anyone on the internet" thing but when GitHub runners will have been compromised, it will cause a lot more problems than just making doubtful binaries for this little side-project.
 

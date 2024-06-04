@@ -37,8 +37,9 @@ int main(void)
         fputs("What do you want to run?"
             "\n" "1. Hexen: Deathkings of the Dark Citadel"
             "\n" "2. Hexen (base game)"
-            "\n" "0. Quit", stdout);
-        while (true) {
+            "\n" "0. Quit"
+            "\n", stdout);
+        while (1) {
             char key = getchar();
             switch (key) {
                 case '1':

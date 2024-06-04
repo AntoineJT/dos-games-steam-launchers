@@ -29,15 +29,27 @@ jobs:
         with:
           name: Binaries @ ${{ github.sha }}
           path: |
+            README.md
             *.exe
             INFOS.txt
           if-no-files-found: error
 
       # TAG TRIGGERED ONLY
+      - uses: actions/setup-node@v4.0.2
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          node-version: 20.14.0
+
+      - name: Render README to PDF
+        if: ${{ github.ref_type == 'tag' }}
+        run: |
+          npm install markdown-pdf@11.0.0
+          npx markdown-pdf --out README.pdf README.md
+
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}
         run: |
-          Compress-Archive -Path "*.exe", "INFOS.txt", "README.md" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
+          Compress-Archive -Path "*.exe", "INFOS.txt", "README.pdf" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
 
       # Release on version tag
       - name: Create release on tag

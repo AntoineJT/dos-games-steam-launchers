@@ -8,12 +8,13 @@ enum cmd_color {
     WHITE = 15
 };
 
+#define HEXEN_CMD "chocolate-hexen.exe -iwad ..\\base\\HEXEN.WAD"
 #if defined(HERETIC)
     #define CHOCO_FOLDER "chocolate-heretic"
     #define CHOCO_CMD "chocolate-heretic.exe -iwad ..\\base\\HERETIC.WAD"
 #elif defined(HEXEN)
     #define CHOCO_FOLDER "chocolate-hexen"
-    #define CHOCO_CMD "chocolate-hexen.exe -iwad ..\\base\\HEXEN.WAD"
+    #define CHOCO_CMD HEXEN_CMD
 #elif defined(HEXENDD)
     #define CHOCO_FOLDER "chocolate-hexen"
     #define CHOCO_CMD "chocolate-hexen.exe -iwad ..\\base\\HEXEN.WAD -file ..\\base\\HEXDD.WAD"
@@ -29,8 +30,29 @@ enum cmd_color {
 int main(void)
 {
     if (chdir(CHOCO_FOLDER) == 0) {
+        #if !defined(HEXENDD)
         system(CHOCO_CMD);
         return EXIT_SUCCESS;
+        #else
+        fputs("What do you want to run?"
+            "\n" "1. Hexen: Deathkings of the Dark Citadel"
+            "\n" "2. Hexen (base game)"
+            "\n" "0. Quit"
+            "\n", stdout);
+        while (1) {
+            char key = getchar();
+            switch (key) {
+                case '1':
+                    system(CHOCO_CMD);
+                    return EXIT_SUCCESS;
+                case '2':
+                    system(HEXEN_CMD);
+                    return EXIT_SUCCESS;
+                case '0':
+                    return EXIT_SUCCESS;
+            }
+        }
+        #endif
     }
 
     const HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);

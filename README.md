@@ -8,9 +8,10 @@ Just a simple collection of minimal C programs to launch some old DOS games from
 
 This thing exists because trusting premade closed source/prebuilt similar launchers is unnecessarily risky since I can do this within a minute.
 
-That's why I do not plan to provide prebuilt versions: just build it yourself, you'll be sure about the code you're running.
+I'm now providing pre-built binaries, but built exclusively by GitHub machines. \
+You can find that in the releases tab.
 
-If I do someday, remembers that it's better to build them yourself at least to have the latest binaries.
+I'm still fond of the "don't trust anyone on the internet" thing but when GitHub runners will have been compromised, it will cause a lot more problems than just making doubtful binaries for this little side-project.
 
 ## What is supported?
 

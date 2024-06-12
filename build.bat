@@ -1,4 +1,4 @@
-Copy-Item -Path dist_template -Destination dist -Recurse
+robocopy dist_template dist /E
 
 gcc wrapper.c -O3 -DBLOOD -o "dist/Blood/BuildGDX/dosbox.exe"
 gcc choco.c -O3 -DDOOM -o "dist/Doom/Chocolate Doom/dosbox.exe"

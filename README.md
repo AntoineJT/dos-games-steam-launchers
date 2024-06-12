@@ -16,9 +16,9 @@ I'm still fond of the "don't trust anyone on the internet" thing but when GitHub
 ## What is supported?
 
 - **Blood**
-  - [BuildGDX (BloodGDX)](#blood---buildgdx)
+  - BuildGDX (BloodGDX)
 - **Doom (1993)**
-  - [Chocolate Doom](#doom-1993---chocolate-doom)
+  - Chocolate Doom
 - **Heretic**
   - Chocolate Heretic
 - **HeXen**
@@ -27,7 +27,7 @@ I'm still fond of the "don't trust anyone on the internet" thing but when GitHub
   - **Deathkings of the Dark Citadel** (Expansion Pack)
     - Chocolate HeXen
 - **Red Faction** (not a DOS game)
-  - [Dash Faction](#red-faction)
+  - Dash Faction
 
 ## Common instructions
 

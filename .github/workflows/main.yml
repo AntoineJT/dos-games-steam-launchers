@@ -30,7 +30,7 @@ jobs:
           name: Binaries @ ${{ github.sha }}
           path: |
             README.md
-            *.exe
+            dist/**.exe
             INFOS.txt
           if-no-files-found: error
 
@@ -49,7 +49,7 @@ jobs:
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}
         run: |
-          Compress-Archive -Path "*.exe", "INFOS.txt", "README.pdf" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
+          Compress-Archive -Path "dist/**.exe", "INFOS.txt", "README.pdf" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
 
       # Release on version tag
       - name: Create release on tag

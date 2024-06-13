@@ -44,6 +44,7 @@ jobs:
         if: ${{ github.ref_type == 'tag' }}
         run: |
           npx markdown-pdf@11.0.0 --out README.pdf README.md
+          npx markdown-pdf@11.0.0 dist/**.md
 
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}

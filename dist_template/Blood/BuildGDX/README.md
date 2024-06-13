@@ -7,8 +7,7 @@ You can download the closed source official [Oracle JRE](https://www.java.com/do
 
 Download BuildGDX on [the official website](https://m210.duke4.net/), and put it in your Steam Blood directory.
 It must be named `BuildGDX.jar`. \
-Rename the original `dosbox.exe` file to whatever you want, for example, `dosbox.exe.orig`. \
-Copy the previously compiled `dosbox_bloodgdx.exe` to your Blood Steam folder and rename it `dosbox.exe`.
+Rename the original `dosbox.exe` file to whatever you want (for example, `dosbox.exe.orig`) then copy `dosbox.exe` to your Blood Steam folder.
 
 You can now run the game using the Steam Play button.
 

@@ -1,5 +1,10 @@
 # Installation
 
-For every `dosbox_<something>.exe` file, just rename it `dosbox.exe` to replace the original `dosbox.exe` file (rename the original one to `dosbox.orig.exe` to be able to revert the process without verifying file integrity in Steam).
-
-For the 3 heretic/hexen games supported, the original dosbox.exe file to replace can be found in the `base/` subfolder in the game files.
+- Go to the `base` game subfolder
+- Rename `dosbox.exe` to `dosbox.orig.exe` to be able to revert the process without verifying file integrity on Steam
+- Copy `dosbox.exe` to the `base` folder
+- Go back to the root game folder
+- Create a folder named `chocolate-hexen`
+- [Download Chocolate Hexen](https://github.com/chocolate-doom/chocolate-doom/releases) (the win32 zip one)
+- Extract chocolate hexen archive to the previously created folder
+- Run the game from Steam

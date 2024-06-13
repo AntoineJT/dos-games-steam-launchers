@@ -40,6 +40,12 @@ jobs:
         with:
           node-version: 20.14.0
 
+      - uses: browser-actions/setup-chrome@v1.7.1
+        if: ${{ github.ref_type == 'tag' }}
+        with:
+          chrome-version: 126
+          install-chromedriver: true
+
       - name: Render README to PDF
         if: ${{ github.ref_type == 'tag' }}
         run: |

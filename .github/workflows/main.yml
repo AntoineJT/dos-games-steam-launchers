@@ -43,9 +43,8 @@ jobs:
       - name: Render README to PDF
         if: ${{ github.ref_type == 'tag' }}
         run: |
-          npm install markdown-pdf@11.0.0
-          npx markdown-pdf --out README.pdf README.md
-          Get-ChildItem . -include **.md  -Recurse | %{ npx markdown-pdf $_.FullName }
+          npm install md-to-pdf@5.2.4
+          npx md-to-pdf ./**/*.md
 
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}

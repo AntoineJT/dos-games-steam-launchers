@@ -50,7 +50,8 @@ jobs:
         if: ${{ github.ref_type == 'tag' }}
         run: |
           npm install md-to-pdf@5.2.4
-          Get-ChildItem . -include **.md  -Recurse | %{ npx md-to-pdf $_.FullName }
+          npx md-to-pdf README.md
+          Get-ChildItem dist/ -include **.md  -Recurse | %{ npx md-to-pdf $_.FullName }
 
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}

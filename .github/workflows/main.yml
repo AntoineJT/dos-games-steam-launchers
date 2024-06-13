@@ -49,6 +49,7 @@ jobs:
       - name: Zip it for release
         if: ${{ github.ref_type == 'tag' }}
         run: |
+          Remove-Item dist -include *.md  -Recurse
           Compress-Archive -Path "dist/", "INFOS.txt", "README.pdf" -DestinationPath "./old-games-steam-launcher_${{ github.sha }}.zip"
 
       # Release on version tag
